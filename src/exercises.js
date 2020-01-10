@@ -2,7 +2,7 @@ function commonEnd(a, b) {
     if (!a || a.length === 0 || !b || b.length === 0) {
         return false;
     }
-    if (a[0] === b[0]) {
+    else if (a[0] === b[0]) {
         return true;
     }
     else if (a[a.length - 1] === b[b.length - 1]) {
@@ -14,7 +14,17 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
-  // write your code here
+    if (!values || values.length !== n || n < 0) {
+        return values = [];
+    }
+    else {
+        
+        for (let i = 0; i < n; i++) {
+
+        }
+        for (let j = values.length - 1; j >= values.length - 1 - n; j--) {
+        }
+    }
 }
 
 function difference(numbers) {
