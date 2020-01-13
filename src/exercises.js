@@ -14,16 +14,18 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
-    if (!values || values.length !== n || n < 0) {
+    if (!values || values.length < n || n < 0) {
         return values = [];
     }
     else {
-        
+        let array = [];
         for (let i = 0; i < n; i++) {
-
+            array.push(values[i]);
         }
-        for (let j = values.length - 1; j >= values.length - 1 - n; j--) {
+        for (let j = values.length - n; j < values.length; j++) {
+            array.push(values[j]);
         }
+        return array;
     }
 }
 
