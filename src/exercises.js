@@ -30,37 +30,27 @@ function endsMeet(values, n) {
 }
 
 function difference(numbers) {
-    let isUndefined = false;
+    let runDifferenceCheck = true;
     let max;
     let min;
     if (!numbers || numbers.length < 1) {
+        runDifferenceCheck = false;
         return undefined;
-        isUndefined = true;
     }
     else {
-        for (number of numbers) {
-            if (Number.isNaN(number)) {
+        for (let number of numbers) {
+            if (Number.isNaN(Number(number))) {
+                runDifferenceCheck = false;
                 return undefined;
-                isUndefined = true;
+                break;
             }
         }
     }
-    if (isUndefined === false) {
-        max = numbers[0];
-        min = numbers[0];
-        for (let i = 1; i < numbers.length; i++) {
-            if (numbers[i] > numbers[i - 1]) {
-                max = numbers[i];
-            }
-        }
-        for (let i = 1; i < numbers.length; i++) {
-            if (numbers[i] < numbers[i - 1]) {
-                min = numbers[i];
-            }
-        }
+    if (runDifferenceCheck) {
+        max = Math.max(...numbers);
+        min = Math.min(...numbers);
         return max - min;
     }
-
 }
 
 function max(number) {
