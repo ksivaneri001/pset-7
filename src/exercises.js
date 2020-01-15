@@ -54,7 +54,24 @@ function difference(numbers) {
 }
 
 function max(number) {
-  // write your code here
+    let runMaxCheck = true;;
+    if (!number || number.length < 3 || number.length % 2 === 0) {
+        runMaxCheck = false;
+        return undefined;
+    }
+    else {
+        for (let index of number) {
+            if (Number.isNaN(Number(index))) {
+                runMaxCheck = false;
+                return undefined;
+                break;
+            }
+        }
+    }
+    if (runMaxCheck) {
+        const max = Math.max(number[0], number[(number.length - 1) / 2], number[number.length - 1]);
+        return max;
+    }
 }
 
 function middle(values) {
