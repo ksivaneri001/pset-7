@@ -190,8 +190,40 @@ function consecutive(numbers) {
 }
 
 function balance(numbers) {
-  // write your code here
-  console.log("test");
+    let size = 0;
+    let sumFirstHalf = 0;
+    let sumSecondHalf = 0;
+    let count = 0;
+    if (!numbers || numbers.length < 2) {
+        return false;
+    }
+    for (i = 0; i < numbers.length; i++) {
+        if (!(Number.isInteger(numbers[i]))) {
+            return false;
+        }
+    }
+    for (j = 0; j < numbers.length; j++) {
+        if (numbers[j] == undefined) {
+            return true;
+        }
+    }
+    for (x = numbers.length; x > -1; x--) {
+        sumFirstHalf = 0;
+        sumSecondHalf = 0;
+        for (y = numbers.length - x; y > -1; y--) {
+            sumFirstHalf += numbers[y];
+        }
+        for (a = numbers.length - 1; a > numbers.length - x; a--) {
+            sumSecondHalf += numbers[a];
+        }
+        if (sumSecondHalf == sumFirstHalf) {
+            count = 1;
+            return true;
+        }
+    }
+    if (count === 0) {
+        return false;
+    }
 }
 
 function clumps(values) {
