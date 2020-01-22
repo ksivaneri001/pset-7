@@ -75,7 +75,15 @@ function max(number) {
 }
 
 function middle(values) {
-  // write your code here
+    if (!values || values.length < 3 || values.length % 2 === 0) {
+        return values = [];
+    }
+    else {
+        let array = [];
+        let middle = (values.length - 1) / 2;
+        array.push(values[middle - 1], values[middle], values[middle + 1]);
+        return array;
+    }
 }
 
 function increasing(numbers) {
