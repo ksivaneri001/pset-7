@@ -112,12 +112,14 @@ function increasing(numbers) {
             if (numbers[i] < numbers[i + 1]) {
                 increaseCount++;
             }
-            else if (numbers[i] === numbers[i + 1]) {}
             else {
                 increaseCount = 0;
             }
+            if (increaseCount === 2) {
+                break;
+            }
         }
-        if (increaseCount >= 3) {
+        if (increaseCount >= 2) {
             return true;
         }
         else {
