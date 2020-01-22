@@ -96,12 +96,12 @@ function increasing(numbers) {
     else {
         for (let index of numbers) {
             if (Number.isNaN(Number(index))) {
-                runMaxCheck = false;
+                runIncreasingCheck = false;
                 return false;
                 break;
             }
             else if (Number(index) % 1 !== 0) {
-                runMaxCheck = false;
+                runIncreasingCheck = false;
                 return false;
                 break;
             }
@@ -145,7 +145,48 @@ function everywhere(values, x) {
 }
 
 function consecutive(numbers) {
-  // write your code here
+    let runConsecutiveCheck = true;
+    let oddCount = 0;
+    let evenCount = 0;
+    if (!numbers || numbers.length < 3) {
+        runIncreasingCheck = false;
+        return false;
+    }
+    else {
+        for (let index of numbers) {
+            if (Number.isNaN(Number(index))) {
+                runConsecutiveCheck = false;
+                return false;
+                break;
+            }
+            else if (Number(index) % 1 !== 0) {
+                runConsecutiveCheck = false;
+                return false;
+                break;
+            }
+        }
+    }
+    if (runConsecutiveCheck) {
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] % 2 === 0) {
+                oddCount = 0;
+                evenCount++;
+            }
+            else if (numbers[i] % 2 === 1) {
+                evenCount = 0;
+                oddCount++;
+            }
+            if (oddCount === 3 || evenCount === 3) {
+                break;
+            }
+        }
+        if (oddCount === 3 || evenCount === 3) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 function balance(numbers) {
