@@ -129,7 +129,19 @@ function increasing(numbers) {
 }
 
 function everywhere(values, x) {
-  // write your code here
+    let isEverywhere = true;
+    if (!values || values.length < 1 || !x) {
+        return false;
+    }
+    else {
+        for (let i = 1; i < values.length - 1; i++) {
+            if (values[i] === x || values[i - 1] === x || values[i + 1] === x) {}
+            else {
+                isEverywhere = false;
+            }
+        }
+        return isEverywhere;
+    }
 }
 
 function consecutive(numbers) {
