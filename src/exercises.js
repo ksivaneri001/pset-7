@@ -54,7 +54,7 @@ function difference(numbers) {
 }
 
 function max(number) {
-    let runMaxCheck = true;;
+    let runMaxCheck = true;
     if (!number || number.length < 3 || number.length % 2 === 0) {
         runMaxCheck = false;
         return undefined;
@@ -87,7 +87,43 @@ function middle(values) {
 }
 
 function increasing(numbers) {
-  // write your code here
+    let runIncreasingCheck = true;
+    let increaseCount = 0;
+    if (!numbers || numbers.length < 3) {
+        runIncreasingCheck = false;
+        return false;
+    }
+    else {
+        for (let index of numbers) {
+            if (Number.isNaN(Number(index))) {
+                runMaxCheck = false;
+                return false;
+                break;
+            }
+            else if (Number(index) % 1 !== 0) {
+                runMaxCheck = false;
+                return false;
+                break;
+            }
+        }
+    }
+    if (runIncreasingCheck) {
+        for (let i = 0; i < numbers.length - 1; i++) {
+            if (numbers[i] < numbers[i + 1]) {
+                increaseCount++;
+            }
+            else if (numbers[i] === numbers[i + 1]) {}
+            else {
+                increaseCount = 0;
+            }
+        }
+        if (increaseCount >= 3) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 function everywhere(values, x) {
