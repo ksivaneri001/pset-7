@@ -197,23 +197,23 @@ function balance(numbers) {
     if (!numbers || numbers.length < 2) {
         return false;
     }
-    for (i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < numbers.length; i++) {
         if (!(Number.isInteger(numbers[i]))) {
             return false;
         }
     }
-    for (j = 0; j < numbers.length; j++) {
+    for (let j = 0; j < numbers.length; j++) {
         if (numbers[j] == undefined) {
             return true;
         }
     }
-    for (x = numbers.length; x > -1; x--) {
+    for (let x = numbers.length; x > -1; x--) {
         sumFirstHalf = 0;
         sumSecondHalf = 0;
-        for (y = numbers.length - x; y > -1; y--) {
+        for (let y = numbers.length - x; y > -1; y--) {
             sumFirstHalf += numbers[y];
         }
-        for (a = numbers.length - 1; a > numbers.length - x; a--) {
+        for (let a = numbers.length - 1; a > numbers.length - x; a--) {
             sumSecondHalf += numbers[a];
         }
         if (sumSecondHalf == sumFirstHalf) {
@@ -227,7 +227,26 @@ function balance(numbers) {
 }
 
 function clumps(values) {
-  // write your code here
+    let isEqual = false;
+    let clumpCount = 0;
+    if (!values) {
+        return -1;
+    }
+    else {
+        for (let i = 0; i < values.length - 1; i++) {
+            if (values[i] === values[i + 1]) {
+                isEqual = true;
+            }
+            else if (isEqual && values[i] !== values[i + 1]) {
+                clumpCount++;
+                isEqual = false;
+            }
+        }
+        if (isEqual && values.length > 0 && values[values.length - 1] === values[values.length - 2]) {
+            clumpCount++;
+        }
+        return clumpCount;
+    }
 }
 
 /*
